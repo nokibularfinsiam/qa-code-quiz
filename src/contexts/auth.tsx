@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import accounts from '../../storage/account.json';
+const accountMap: any = accounts;
 
 interface AuthAPI {
     user?: {
@@ -25,9 +26,9 @@ const AuthProvider: React.FC = ({children}) => {
 
     const login = (username: string, password: string) => {
         console.warn({username, password})
-        if(accounts[username].password === password) {
-            setUser(accounts[username]);
-            return Promise.resolve(accounts[username])
+        if(accountMap[username] && accountMap[username].password === password) {
+            setUser(accountMap[username]);
+            return Promise.resolve(accountMap[username])
         } else {
             return Promise.reject("INVALID USER");
         }
