@@ -1,7 +1,7 @@
 describe('Login flow', () => {
   it('logs in successfully with valid credentials', () => {
-  // visit the dev server directly
-  cy.visit('http://localhost:8080');
+    // visit root (webpack-dev-server serves index.html)
+    cy.visit('/');
 
     // enter credentials for the account defined in storage/account.json
     cy.get('input[placeholder="Enter Username"]').type('SomeUser_name');
@@ -10,7 +10,5 @@ describe('Login flow', () => {
 
     // header should show the logged in user's name
     cy.contains('Hello SomeName');
-    // take a screenshot of the logged-in state for review
-    cy.screenshot('login-success');
   });
 });

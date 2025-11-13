@@ -1,5 +1,0 @@
-{
-  "integrationFolder": "cypress/integration",
-  "testFiles": "**/*.js",
-  "video": false
-}
